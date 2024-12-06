@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Excluir Documento</h2>
+<mat-dialog-content class="full-width">
+  <p>Desja realmente exlcuir o documento? </p>
+  <p>Titulo: {{excluir.titulo}}</p>
+  <p>Sigla: {{excluir.sigla}}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="voltar()">Cancelar</button>
+  <button mat-button (click)="salvar()" type="submit" >Salvar</button>
+</mat-dialog-actions>

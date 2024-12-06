@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Cadastrar documento</h2>
+<mat-dialog-content class="full-width">
+      <form [formGroup]="documentForm" (ngSubmit)="salvar()" class="full-width">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="titulo" required />
+          <mat-error *ngIf="documentForm.get('titulo')?.hasError('required')">
+            O título é obrigatório.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput formControlName="descricao"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Versão</mat-label>
+          <input matInput formControlName="versao" required />
+          <mat-error *ngIf="documentForm.get('versao')?.hasError('required')">
+            A versão é obrigatória.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Sigla</mat-label>
+          <input matInput formControlName="sigla" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Fase</mat-label>
+          <mat-select formControlName="fase" required>
+            <mat-option *ngFor="let fase of fases" [value]="fase">{{ fase }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="documentForm.get('fase')?.hasError('required')">
+            A fase é obrigatória.
+          </mat-error>
+        </mat-form-field>
+      </form>
+</mat-dialog-content>
+<mat-dialog-actions class="full-width">
+  <button mat-button (click)="voltar()" type="button">Cancelar</button>
+  <button mat-button (click)="salvar()" type="submit"
+          [disabled]="!documentForm.valid">Salvar</button>
+</mat-dialog-actions>

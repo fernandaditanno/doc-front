@@ -1,0 +1,11 @@
+.card-home {
+  max-width: 800px;
+  horiz-align: center;
+  vertical-align: middle;
+}
+.example-card-footer {
+  padding: 16px;
+}
+.full-width{
+  width: 100%;
+}
